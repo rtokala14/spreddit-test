@@ -1,3 +1,3 @@
 export function useUser() {
-  return { id: document.cookie.match(/userId={?<id>[^;]+);?$/).groups.id };
+  return { id: document.cookie.match(/userId=(?<id>[^;]+);?$/).groups.id };
 }
