@@ -56,6 +56,23 @@ app.get("/posts/:id", async (req, res) => {
   );
 });
 
+app.post("/posts/:id/comments", async (req, res) => {
+  if (req.body.message === "" || req.body.message == null) {
+    return res.send(app.httpErrors.badRequest("Message is Required"));
+  }
+
+  return await commitToDb(
+    prisma.comment.create({
+      data: {
+        message: req.body.message,
+        userId: req.cookies.userid,
+        parentId: req.body.parentId,
+        postid: req.params.id,
+      },
+    })
+  );
+});
+
 async function commitToDb(promise) {
   const [error, data] = await app.to(promise);
   if (error) return app.httpErrors.internalServerError(error.message);

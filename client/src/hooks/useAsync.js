@@ -11,7 +11,7 @@ export function useAsync(func, deps = []) {
 }
 
 export function useAsyncFn(func, deps = []) {
-  useAsyncInternal(func, deps, false);
+  return useAsyncInternal(func, deps, false);
 }
 
 function useAsyncInternal(func, deps, initialLoading = false) {
