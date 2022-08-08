@@ -18,6 +18,7 @@ export function CommentForm({
     <form onSubmit={handleSubmit}>
       <div className="comment-form-row">
         <textarea
+          placeholder="Add a Comment"
           autoFocus={autoFocus}
           value={message}
           className="message-input"
