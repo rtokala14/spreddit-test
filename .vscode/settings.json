@@ -6,6 +6,7 @@
         "editor.formatOnSave": true
     },
     "[prisma]": {
+        "editor.formatOnSave": true,
         "editor.defaultFormatter": "Prisma.prisma"
-      }
+    }
 }
